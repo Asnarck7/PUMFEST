@@ -145,7 +145,7 @@ body {
 .checkbox-group {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-size: 0.95rem;
 }
 
@@ -158,6 +158,17 @@ body {
 .checkbox-group a:hover {
   color: #c53713;
 }
+
+/* 🎨 Estilo personalizado del cuadro de aceptar términos */
+.checkbox-group input[type="checkbox"] {
+  width: 22px;             /* Ancho cuadro */
+  height: 22px;            /* Alto cuadro */
+  accent-color: #c54a2b;
+  cursor: pointer;
+  border-radius: 5px; 
+  transform: translateY(1px);
+}
+
 
 /* ============================================================= */
 /* BOTÓN CREAR CUENTA CON EFECTO */
@@ -393,6 +404,7 @@ body {
   100% { transform: scale(1); }
 }
 
+
 /* ===============================
    🌫️ ANIMACIONES GLOBALES
 ================================= */
@@ -413,14 +425,40 @@ body {
    ENLACE QUE ABRE EL MODAL
 ================================= */
 .link-terminos {
-  color: #ffcc70; /* 💛 Color del texto (amarillo cálido PUMFEST) */
-  cursor: pointer; /* Cambia el cursor al pasar por encima */
-  text-decoration: none; /* Subrayado para indicar que es clickeable */
-  transition: color 0.3s ease; /* Transición suave al cambiar el color */
+  color: #ffcc70; /* 💛 Color base dorado */
+  cursor: pointer; /* 🖱️ Cambia el cursor al pasar por encima */
+  text-decoration: none; /* Sin subrayado */
+  font-weight: 600; /* Un poco más grueso para destacar */
+  display: inline-block; /* Permite aplicar transformaciones */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  animation: glowPulse 2s ease-in-out infinite; /* 💥 Animación cada 2 segundos */
 }
 
+/* 🌈 Brillo más intenso al pasar el mouse */
 .link-terminos:hover {
-  color: #ff9950; /* 🧡 Color más brillante al pasar el mouse */
+  color: #ff9950; /* 🧡 Más brillante */
+  text-shadow: 0 0 15px rgba(255, 153, 80, 0.8),
+               0 0 30px rgba(255, 204, 112, 0.6);
+  transform: scale(1.1); /* 🔍 Se agranda un poquito más al pasar el mouse */
+}
+
+/* 🔥 Animación suave de resplandor y crecimiento */
+@keyframes glowPulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 5px rgba(255, 204, 112, 0.3),
+                 0 0 10px rgba(255, 153, 80, 0.2);
+  }
+  50% {
+    transform: scale(1.1); /* 💫 Se agranda ligeramente */
+    text-shadow: 0 0 15px rgba(255, 204, 112, 0.8),
+                 0 0 30px rgba(255, 153, 80, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 5px rgba(255, 204, 112, 0.3),
+                 0 0 10px rgba(255, 153, 80, 0.2);
+  }
 }
 
 
