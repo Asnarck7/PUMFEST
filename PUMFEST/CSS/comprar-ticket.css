@@ -1,0 +1,320 @@
+/* =======================
+   RESETEO GENERAL
+=========================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #090A07;
+  color: white;
+}
+
+/* =======================
+   HEADER Y LOGO
+=========================*/
+.header {
+  background: #EFEEE4;
+  border-bottom: 3px solid #C54A2B;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center; /* ✅ Centra el logo */
+  align-items: center;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  background: url("../LogoPUMFEST/LogoPUMFESTsinFondo.png") no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Efecto de brillo sobre el logo */
+.logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* =======================
+   CONTENIDO PRINCIPAL
+=========================*/
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #C54A2B;
+  margin-bottom: 30px;
+}
+
+.resumen {
+  background: rgba(15, 12, 19, 0.9);
+  padding: 30px;
+  border: 2px solid #C54A2B;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(197, 74, 43, 0.2);
+}
+
+.ticket {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.ticket img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  background: #090A07;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #C54A2B;
+}
+
+.detalles {
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.detalles p {
+  margin: 10px 0;
+}
+
+/* =======================
+   BOTÓN FINALIZAR COMPRA
+=========================*/
+.finalizar {
+  background: linear-gradient(135deg, #c54a2b, #ff764d);
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 77, 0, 0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 7px; /*espacio superior*/
+  margin-bottom: 15px /*espacio inferior*/
+}
+
+.finalizar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 120, 60, 0.7);
+}
+
+.finalizar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+}
+
+.finalizar:hover::before {
+  left: 150%;
+}
+
+.finalizar:active {
+  transform: scale(0.96);
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+.finalizar:hover {
+  background-color: #005ecb;
+}
+
+
+/* Contenedor de la imagen del avatarTicket */
+.avatarTicket-finalizar {
+  margin-top: 80px;
+  text-align: center; 
+}
+
+/* Imagen del avatarTicket */
+.avatarTicket {
+  width: 180px; 
+  height: 300px; 
+  transition: all 0.4s ease;
+}
+
+/* 🌟 Efecto sutil al pasar el mouse */
+.avatarTicket:hover {
+  transform: scale(1.03); /* Un poco más pequeña que antes */
+  filter: brightness(1.2); /* Brilla ligeramente */
+}
+
+/*=================================================================================================*/
+
+/* ================================
+   FOOTER
+================================ */
+.footer {
+  background: #1e1a24;
+  border-top: 2px solid #c54a2b;
+  color: #ccc;
+  font-size: 0.9rem;
+  padding: 20px 40px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-section h4 {
+  color: #c54a2b;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-section a {
+  color: #bbb;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 3px 0;
+  transition: color 0.3s ease, transform 0.2s;
+}
+
+.footer-section a:hover {
+  color: #c54a2b;
+  transform: translateX(4px);
+}
+
+.footer-section i {
+  font-size: 0.95rem;
+  width: 18px;
+  text-align: center;
+}
+
+.footer-qr {
+  text-align: center;
+  min-width: 120px;
+}
+
+.footer-qr img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  border: 1px solid #c54a2b;
+  margin-bottom: 5px;
+}
+
+.footer-qr p {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.8rem;
+  color: #777;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+    .header {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+    .user-icon {
+    font-size: 1.8rem;
+  }
+
+
+  .search-bar input {
+    font-size: 0.9rem;
+  }
+
+  .categories {
+    justify-content: center;
+  }
+
+    .categories a {
+    padding: 7px 15px;
+    font-size: 0.85rem;
+  }
+
+  .footer {
+    background: #1e1a24;
+    padding: 30px;
+    border-top: 2px solid #c54a2b;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+  }
+}
