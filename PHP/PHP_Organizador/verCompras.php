@@ -1,0 +1,1 @@
+<!--Muestra compras realizadas por asistentes en ese evento.-->
