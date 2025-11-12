@@ -1,0 +1,263 @@
+/* ================================
+   ESTILO GENERAL - VERIFICAR CORREO ORGANIZADOR
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #090A07;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ================================
+   TARJETA DE VERIFICACIÓN
+================================ */
+.card {
+  background: rgba(30, 26, 36, 0.95);
+  border: 2px solid #C54A2B;
+  border-radius: 12px;
+  padding: 40px 50px;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  animation: aparecerCard 0.6s ease forwards;
+}
+
+@keyframes aparecerCard {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ================================
+   TÍTULOS Y TEXTOS
+================================ */
+.card h2 {
+  color: #C54A2B;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #ddd;
+  margin-bottom: 15px;
+}
+
+.card b {
+  color: #fff;
+}
+
+/* ================================
+   INPUT DEL CÓDIGO
+================================ */
+.card input[type="text"] {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: #121212;
+  color: white;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.card input[type="text"]:focus {
+  outline: none;
+  border-color: #C54A2B;
+  box-shadow: 0 0 8px rgba(197, 74, 43, 0.5);
+}
+
+/* ================================
+   BOTÓN VERIFICAR
+================================ */
+.card button {
+  background: linear-gradient(90deg, #c54a2b, #a63b20);
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(197, 74, 43, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+}
+
+.card button:hover::after {
+  left: 120%;
+}
+
+.card button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #a63b20, #c54a2b);
+  box-shadow: 0 0 20px rgba(197,74,43,0.6);
+}
+
+/* ================================
+   MENSAJE DE RESPUESTA
+================================ */
+#msg {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* ================================
+   ENLACE REENVIAR CÓDIGO
+================================ */
+.card a {
+  color: #C54A2B;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.card a:hover {
+  text-decoration: underline;
+  color: #ff6b3b;
+}
+
+/* ================================
+   MODAL (SI LUEGO QUIERES USARLO)
+================================ */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal {
+  background: #1c1c1c;
+  color: white;
+  padding: 25px 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal p {
+  margin: 10px 0;
+}
+
+.modal button {
+  background: #ff6600;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* =======================
+   🌙 ESTILOS DEL MODAL CENTRAL
+   ======================= */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal {
+  background: #222;
+  color: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.3s ease-out;
+  border-top: 4px solid #ff6600;
+}
+
+.modal button {
+  background: #ff6600;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.modal button:hover {
+  background: #ff8533;
+}
+
+/* 🔄 Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 600px) {
+  .card {
+    padding: 30px 20px;
+  }
+
+  .card h2 {
+    font-size: 1.5rem;
+  }
+
+  .card button {
+    width: 100%;
+    padding: 14px;
+  }
+}

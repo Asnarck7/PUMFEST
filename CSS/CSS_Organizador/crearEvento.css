@@ -1,0 +1,295 @@
+/* ===============================
+   PUM FEST - CREAR EVENTO
+   =============================== */
+
+body {
+    background: #090A07;
+    font-family: 'Poppins', sans-serif;
+    color: #EFEEE4;
+    margin: 0;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor {
+    max-width: 600px;
+    margin: 40px auto;
+    background: rgba(30, 26, 36, 0.95);
+    padding: 35px;
+    border-radius: 16px;
+    border: 2px solid #e65a5a;
+    box-shadow: 0 0 25px rgba(230, 90, 90, 0.15);
+}
+
+/* TÍTULO */
+h1 {
+    text-align: center;
+    color: #e65a5a;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* LABELS */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #EFEEE4;
+}
+
+/* INPUTS Y TEXTAREA */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(239, 238, 228, 0.05);
+    border: 1px solid rgba(239, 238, 228, 0.15);
+    border-radius: 10px;
+    color: #EFEEE4;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #e65a5a;
+    box-shadow: 0 0 10px rgba(230, 90, 90, 0.4);
+}
+
+/* BOTONES PRINCIPALES */
+.btn-crear {
+    width: 100%;
+    margin-top: 25px;
+    background: #e65a5a;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    color: #EFEEE4;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-crear:hover {
+    background: #ff6b6b;
+    box-shadow: 0 0 10px rgba(230, 90, 90, 0.5);
+}
+
+.btn-volver {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid #e65a5a;
+    border-radius: 10px;
+    color: #e65a5a;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-volver:hover {
+    background: #e65a5a;
+    color: #EFEEE4;
+}
+
+/* MENSAJE DE ERROR */
+.error {
+    background: rgba(230, 90, 90, 0.9);
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* CONTENEDOR DE CATEGORÍAS */
+#categorias-container {
+    margin-top: 25px;
+    padding: 12px;
+    background: rgba(239, 238, 228, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(230, 90, 90, 0.25);
+}
+
+/* ÍTEM DE CATEGORÍA DINÁMICA */
+.categoria-item {
+    background: rgba(239, 238, 228, 0.05);
+    padding: 20px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(230, 90, 90, 0.25);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 18px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+/* Animación al agregar */
+.categoria-item.animar {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Animación al eliminar */
+.eliminarAnim {
+    animation: fadeOut 0.25s forwards;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; transform: scale(0.9); }
+}
+
+/* BOTÓN ELIMINAR */
+.btn-eliminar {
+    grid-column: 1 / 3;
+    padding: 10px;
+    border: none;
+    background: #e65a5a;
+    color: #EFEEE4;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-eliminar:hover {
+    background: #ff6b6b;
+    transform: scale(1.05);
+}
+
+/* BOTÓN AGREGAR */
+.btn-agregar {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: transparent;
+    color: #e65a5a;
+    border-radius: 10px;
+    border: 2px solid #e65a5a;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-agregar:hover {
+    background: #e65a5a;
+    color: #EFEEE4;
+    transform: scale(1.03);
+}
+
+/* INPUTS DENTRO DE CATEGORÍA */
+.categoria-item input,
+.categoria-item select,
+.categoria-item textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(239, 238, 228, 0.1);
+    background: rgba(239, 238, 228, 0.05);
+    color: #EFEEE4;
+    font-size: 15px;
+}
+
+.categoria-item input:focus,
+.categoria-item select:focus,
+.categoria-item textarea:focus {
+    border-color: #e65a5a;
+    box-shadow: 0 0 6px rgba(230, 90, 90, 0.3);
+}
+
+/* LABELS INTERNOS */
+.categoria-item label {
+    grid-column: 1 / 3;
+    font-weight: bold;
+    color: #e65a5a;
+}
+
+/* ===============================
+   SELECT PERSONALIZADO
+   =============================== */
+
+.categoria-select {
+    margin-top: 20px;
+}
+
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.select-wrapper select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: #131313; /* Fondo oscuro */
+    border: 1px solid #e65a5a40;
+    border-radius: 10px;
+    padding: 12px;
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* ✅ Estilo visual cuando pasas sobre el campo */
+.select-wrapper select:hover {
+    border-color: #e65a5a;
+    box-shadow: 0 0 10px rgba(230, 90, 90, 0.3);
+}
+
+/* ✅ Color de fondo del desplegable */
+.select-wrapper select option {
+    background: #131313; /* gris azulado oscuro */
+    color: #ffffff;
+}
+
+/* ✅ Color cuando la opción está resaltada */
+.select-wrapper select option:checked,
+.select-wrapper select option:hover {
+    background: #e65a5a; /* rojo coral */
+    color: #000;
+}
+
+
+.select-wrapper select:focus {
+    border-color: #e65a5a;
+    box-shadow: 0 0 10px rgba(230, 90, 90, 0.3);
+    outline: none;
+}
+
+/* Icono de flecha personalizada */
+.select-wrapper .arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e65a5a;
+    font-size: 14px;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+/* Animación al desplegar */
+.select-wrapper select:focus + .arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+@media (max-width: 768px) {
+    .contenedor {
+        margin: 20px;
+        padding: 25px;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+}

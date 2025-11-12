@@ -1,0 +1,169 @@
+/* ================================================
+   🧩 ESTILO UNIFICADO - LOGIN ADMIN PUMFEST
+   Gama: dorado #facc15 sobre fondo oscuro elegante
+================================================= */
+
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #1c1a1a, #0b0b0b);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Contenedor principal */
+.login-container {
+  background: rgba(24, 26, 34, 0.96);
+  border: 2px solid #facc15; /* borde dorado */
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(250, 204, 21, 0.25);
+  padding: 40px 45px;
+  text-align: center;
+  width: 360px;
+  position: relative;
+  animation: aparecerAdmin 0.6s ease;
+}
+
+/* Animación de entrada */
+@keyframes aparecerAdmin {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Título */
+.login-container h2 {
+  color: #facc15;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* Campo de texto */
+input[type="password"],
+input[type="email"],
+#claveAdmin {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #111;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 18px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #facc15;
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.4);
+}
+
+/* Botón */
+button,
+#btnEntrar {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #facc15, #fcd34d);
+  border: none;
+  border-radius: 10px;
+  color: #000;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(250, 204, 21, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover,
+#btnEntrar:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #fde047, #facc15);
+  box-shadow: 0 0 25px rgba(250, 204, 21, 0.5);
+}
+
+/* Efecto de brillo al pasar */
+#btnEntrar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+}
+
+#btnEntrar:hover::after {
+  left: 120%;
+}
+
+/* Mensaje */
+#mensaje {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #facc15;
+  min-height: 22px;
+}
+
+/* Loader */
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #facc15;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: girar 1s linear infinite;
+  margin: 20px auto 0;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Brillo de seguridad */
+.login-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(250, 204, 21, 0.03));
+  pointer-events: none;
+}
+
+/* Campo de texto */
+input[type="password"],
+input[type="email"],
+#claveAdmin {
+  width: 90%;            /* 🔹 Antes 100%, ahora deja espacio interno */
+  padding: 10px 12px;    /* 🔹 Menor altura visual, más equilibrado */
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #111;
+  color: #fff;
+  font-size: 0.95rem;    /* 🔹 Texto ligeramente más pequeño */
+  margin-bottom: 16px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #facc15;
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
+}
+

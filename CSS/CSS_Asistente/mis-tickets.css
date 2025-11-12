@@ -1,0 +1,678 @@
+/* ==========================
+🎟️ MIS TICKETS - PUMFEST
+========================== */
+/* ================================
+   HEADER
+================================ */
+.header {
+  position: relative;
+  width: 100%;
+  background: #efeee4;
+  border-bottom: 3px solid #c54a2b;
+  padding: 20px 0 30px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(197, 74, 43, 0.25);
+  animation: fadeInHeader 0.8s ease forwards;
+}
+
+.logo {
+  display: block;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  background: url("../../LogoPUMFEST/LogoPUMFESTsinFondo.png") no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+  position: relative;
+  animation: pulse 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+/* ✨ Brillo que recorre el logo */
+.logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 3s infinite;
+}
+
+/* ✨ Efecto hover del logo */
+.logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px rgba(255, 184, 77, 0.6));
+}
+
+/* 💓 Animación de “latido” */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* 💫 Animación de brillo */
+@keyframes shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+
+/* ===============================
+   👤 MENÚ DE USUARIO
+=============================== */
+.user-menu {
+  position: absolute;
+  right: 40px;
+  top: 25px;
+  text-align: center;
+}
+
+.user-icon:hover {
+  transform: scale(1.05);
+}
+
+.user-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+
+/* Imagen circular del usuario */
+.user-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* 📛 Nombre debajo */
+.login-text {
+  display: block;
+  font-weight: bold;
+  color: #c54a2b;
+  font-size: 1.1rem;
+  margin-top: 6px;
+  letter-spacing: 0.4px;
+}
+
+
+.user-img:hover {
+  transform: scale(1.08);
+}
+
+/* Texto con nombre del usuario */
+.login-text {
+  font-weight: bold;
+  color: #c54a2b;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================
+📜 MENÚ DESPLEGABLE
+========================== */
+.user-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 130px;
+  background: rgba(20, 18, 24, 0.95);
+  border: 1px solid rgba(255, 184, 77, 0.15);
+  border-radius: 15px;
+  min-width: 220px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(-10px);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+
+.user-dropdown a {
+  display: block;
+  padding: 12px 18px;
+  color: #ffb84d;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.user-dropdown a:hover {
+  background: rgba(255, 184, 77, 0.15);
+  color: #fff;
+}
+
+
+/* Cuando se activa el menú */
+.user-dropdown.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Parte superior: logo centrado + icono usuario */
+
+body {
+  background: #090a07;
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  opacity: 1 !important;
+  transition: opacity 0.5s ease;
+}
+
+/* ==========================
+CONTENEDOR PRINCIPAL
+========================== */
+.container-tickets {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container-tickets h1 {
+  color: #ffb84d;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(255, 184, 77, 0.6);
+}
+
+/* ==========================
+LISTA DE TICKETS
+========================== */
+.ticket-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.ticket-card {
+  background: rgba(45, 42, 53, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s ease;
+}
+
+.ticket-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(197, 74, 43, 0.5);
+  border-color: #c54a2b;
+}
+
+.ticket-info {
+  padding: 20px;
+  text-align: left;
+}
+
+.ticket-info h3 {
+  color: #ffcc70;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.ticket-info p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.ticket-info strong {
+  color: #ffb84d;
+}
+
+.estado {
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.estado.activo {
+  background: #28a745;
+  color: white;
+}
+
+.estado.usado {
+  background: #a72b2b;
+  color: white;
+}
+
+/* ==========================
+🎟️ BLOQUEO VISUAL DEL QR
+========================== */
+
+/* Contenedor del QR */
+.ticket-qr {
+  position: relative;
+  background: #1e1a24;
+  text-align: center;
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: visible; /* 🔓 Permite que el QR salga del contenedor */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Imagen del QR */
+.ticket-qr img {
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+  border: 2px solid #c54a2b;
+  background: #fff;
+  padding: 5px;
+  transition: all 0.4s ease;
+  z-index: 1;
+  position: relative;
+}
+
+/* Imagen QR normal */
+.ticket-qr img.qr-imagen {
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+  border: 2px solid #c54a2b;
+  background: #fff;
+  padding: 5px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+}
+
+/* Imagen de bloqueo que cubre el QR */
+.ticket-qr .bloqueo-overlay {
+  position: absolute;
+  inset: 0; /* ocupa todo el espacio */
+  background: url("../../IMG/IMGBLOCK/BlockeoPumFest.jpg") center/cover no-repeat;
+  opacity: 0.92;
+  z-index: 2;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Texto informativo encima */
+.ticket-qr .bloqueo-overlay::after {
+  content: "🔒 Click para desbloquear";
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #ffb84d;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Cuando el QR está desbloqueado (overlay oculto) */
+.ticket-qr.desbloqueado .bloqueo-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ==========================
+🔍 MODO AMPLIADO (centrado en pantalla el qr al ser
+desbloqueado permite al usuario que el qr sea mas visible) 
+========================== */
+.ticket-qr.expandido img.qr-imagen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height: 350px;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 9999;
+  border: 3px solid #ffb84d;
+  box-shadow: 0 0 40px rgba(255, 184, 77, 0.6);
+  background: #fff;
+  animation: zoomIn 0.4s ease forwards;
+}
+
+
+/* 🖼️ Efecto de ampliación al ver el QR desbloqueado */
+.ticket-qr.expandido img {
+  transform: scale(1.7);
+  box-shadow: 0 0 25px rgba(255, 184, 77, 0.6);
+  z-index: 10;
+}
+
+/* Fondo oscuro cuando el QR está expandido */
+.ticket-qr.expandido::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 5;
+  animation: fadeInQR 0.3s ease;
+}
+
+@keyframes fadeInQR {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Código del QR debajo */
+.ticket-qr .codigo {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #ccc;
+  font-family: monospace;
+  z-index: 1;
+  position: relative;
+}
+
+/* 🔒 Capa de bloqueo (imagen sobre el QR) */
+.qr-lock {
+  position: absolute;
+  inset: 0;
+  background: url("../../IMG/IMGBLOCK/BlockeoPumFest.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  opacity: 0.9;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* 🔒 Ícono del candado centrado */
+.qr-lock::after {
+  content: "🔒";
+  font-size: 2rem;
+  color: #ffb84d;
+  text-shadow: 0 0 10px rgba(255, 184, 77, 0.5);
+  animation: pulseLock 2s infinite;
+}
+
+/* ✨ Animación del candado */
+@keyframes pulseLock {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Cuando el QR está desbloqueado */
+.ticket-qr.desbloqueado .qr-lock {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.1);
+}
+
+/* ==========================
+🔒 MODAL DE DESBLOQUEO (contraseña)
+========================== */
+#modalDesbloqueo {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeInModal 0.4s ease;
+}
+
+/* Contenido del modal */
+#modalDesbloqueo .modal-contenido {
+  background: #1f1b29;
+  color: #ffb84d;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(255, 184, 77, 0.4);
+  width: 90%;
+  max-width: 420px;
+  padding: 30px 35px;
+  text-align: center;
+  animation: aparecerZoom 0.4s ease;
+}
+
+#modalDesbloqueo h3 {
+  margin-bottom: 10px;
+}
+
+#modalDesbloqueo input[type="password"] {
+  width: 85%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  margin: 15px 0;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#modalDesbloqueo input[type="password"]:focus {
+  background: #333;
+  box-shadow: 0 0 10px #ffb84d;
+}
+
+/* Botón confirmar */
+#modalDesbloqueo button {
+  background: linear-gradient(135deg, #ffb84d, #c54a2b);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #1a1a1a;
+  transition: all 0.3s ease;
+}
+
+#modalDesbloqueo button:hover {
+  background: linear-gradient(135deg, #ffd280, #ffb84d);
+  transform: scale(1.05);
+}
+
+/* Botón cerrar */
+#modalDesbloqueo .cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #ffb84d;
+  transition: color 0.3s ease;
+}
+
+#modalDesbloqueo .cerrar:hover {
+  color: #fff;
+}
+
+/* ==========================
+🔒 BOTÓN VOLVER A BLOQUEAR
+========================== */
+.ticket-actions {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px; /* más espacio debajo */
+}
+
+.btn-bloquear {
+  background: linear-gradient(135deg, #c54a2b, #ffb84d);
+  color: #fff;
+  border: none;
+  padding: 12px 12px;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(197, 74, 43, 0.3);
+}
+
+.btn-bloquear:hover {
+  background: linear-gradient(135deg, #ffb84d, #c54a2b);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 184, 77, 0.4);
+}
+
+.btn-bloquear:active {
+  transform: scale(0.95);
+}
+
+/* ================================
+   ✨ TOAST (Notificación animada centrada)
+================================ */
+
+/* 🔔 Estilo base del toast */
+.toast {
+  position: fixed;                 /* Se mantiene fija en la pantalla aunque hagas scroll */
+  bottom: 400px;                    /* Distancia desde la parte inferior */
+  left: 50%;                       /* Punto central horizontal */
+  transform: translateX(-50%) translateY(50px); /* Centra el toast horizontalmente */
+  background: #1e1a24;             /* Fondo oscuro elegante */
+  color: #fff;                     /* Texto blanco */
+  padding: 12px 25px;              /* Espaciado interno (vertical/horizontal) */
+  border-radius: 15px;             /* Bordes redondeados */
+  font-size: 1.3rem;              /* Tamaño de texto */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  opacity: 0;                      /* Empieza invisible */
+  transition: all 0.5s ease;       /* Transición suave al aparecer/desaparecer */
+  z-index: 9999;                   /* Aparece por encima de todo */
+  border-left: 5px solid #ffb84d;  /* Línea lateral decorativa */
+  pointer-events: none;            /* Evita que bloquee clics en otros elementos */
+}
+
+/* 🪄 Estado visible (cuando se muestra el toast) */
+.toast.show {
+  opacity: 1;                      /* Lo hace visible */
+  transform: translateX(-50%) translateY(0); /* Lo sube suavemente desde abajo */
+}
+
+/* 🌈 Colores según tipo de mensaje */
+.toast.success {
+  border-color: #28a745;           /* Verde para éxito */
+}
+
+.toast.warning {
+  border-color: #ffc107;           /* Amarillo para advertencia */
+}
+
+/* ================================
+   🔒 Animación visual del QR (ya correcta)
+================================ */
+.ticket-qr.bloqueado-anim {
+  animation: lockEffect 0.8s ease;          /* Aplica animación */
+  filter: grayscale(100%) brightness(0.5);  /* Desatura y oscurece el QR */
+  transform: scale(0.98);                   /* Reduce un poco su tamaño */
+}
+
+/* 💫 Efecto de "bloqueo" visual */
+@keyframes lockEffect {
+  0% {
+    transform: scale(1);
+    filter: grayscale(0);
+  }
+  50% {
+    transform: scale(1.05) rotate(1deg);
+    filter: brightness(0.7);
+  }
+  100% {
+    transform: scale(0.98);
+    filter: grayscale(100%) brightness(0.5);
+  }
+}
+
+
+/* ==========================
+🌟 Animaciones
+========================== */
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes aparecerZoom {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+
+
+
+/* ==========================
+NO TICKETS
+========================== */
+.no-tickets {
+  color: #aaa;
+  font-size: 1.2rem;
+  margin-top: 40px;
+}
+
+/* ===============================
+   ⚙️ RESPONSIVE
+=============================== */
+@media (max-width: 768px) {
+  .logo {
+    width: 130px;
+    height: 130px;
+  }
+
+  .user-menu {
+    right: 20px;
+    top: 25px;
+  }
+
+  .user-img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .login-text {
+    display: none; /* Oculta texto en pantallas pequeñas */
+  }
+
+  .user-dropdown {
+    right: -20px;
+    top: 60px;
+  }
+}
+
+/* Footer visible y fijo al final del documento */
+.footer {
+  background: #1e1a24;
+  border-top: 2px solid #c54a2b;
+  color: #ccc;
+  text-align: center;
+  width: 100%;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
+
+
+/* ===============================
+   ✨ ENTRADA SUAVE HEADER
+=============================== */
+@keyframes fadeInHeader {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

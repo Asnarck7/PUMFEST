@@ -1,0 +1,252 @@
+/* ==========================================
+   LOGIN ORGANIZADOR - PUMFEST
+   Basado en: iniciar-sesion.css
+   Ajustado para el área del organizador
+========================================== */
+
+/* RESET GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  background: #EFEEE4;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 3px solid #FF7A4D;
+}
+
+.logo {
+  display: block;
+  width: 140px;
+  height: 140px;
+  background: url("../../LogoPUMFEST/LogoPUMFESTsinFondo.png") no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.5), rgba(255,255,255,0));
+  transform: skewX(-20deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+.container {
+  max-width: 600px;
+  width: 90%;
+  margin: 60px auto;
+  background: rgba(25, 25, 25, 0.96);
+  padding: 50px 40px;
+  border: 2px solid #FF7A4D;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(255, 122, 77, 0.3);
+  animation: aparecerLogin 0.8s ease-out;
+}
+
+@keyframes aparecerLogin {
+  from {
+    opacity: 0;
+    transform: translateY(-25px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.container h1 {
+  color: #FF7A4D;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+/* Imagen del organizador */
+.login-image-Organizador {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-image-Organizador img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 15px rgba(255, 122, 77, 0.4));
+}
+
+.login-image-Organizador img:hover {
+  transform: scale(1.07);
+  filter: drop-shadow(0 0 25px rgba(255, 122, 77, 0.7));
+}
+
+/* Campos de formulario */
+.form-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ffbda0;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background: #111;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #FF7A4D;
+  box-shadow: 0 0 10px rgba(255, 122, 77, 0.4);
+}
+
+/* =========================
+   BOTÓN LOGIN
+========================= */
+.btn-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px auto 0;
+  padding: 15px 40px;
+  background: linear-gradient(90deg, #FF7A4D, #C54A2B);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 122, 77, 0.4);
+}
+
+.btn-login::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+}
+
+.btn-login:hover::after {
+  left: 120%;
+}
+
+.btn-login:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #C54A2B, #FF7A4D);
+  box-shadow: 0 0 25px rgba(255, 122, 77, 0.6);
+}
+
+/* =========================
+   ENLACES
+========================= */
+a {
+  color: #FF7A4D;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  background: #1b1b1b;
+  border-top: 2px solid #FF7A4D;
+  color: #ccc;
+  text-align: center;
+  padding: 20px 40px;
+  margin-top: auto;
+}
+
+/* =========================
+   LOADER (reutilizable)
+========================= */
+.loader {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #FF7A4D;
+  font-size: 1.2rem;
+  font-weight: bold;
+  z-index: 9999;
+}
+
+/* Loader con animación de círculos */
+.loader::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 122, 77, 0.3);
+  border-top-color: #FF7A4D;
+  border-radius: 50%;
+  animation: girar 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}

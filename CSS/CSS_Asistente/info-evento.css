@@ -1,0 +1,612 @@
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #090A07;
+  color: #fff;
+  background-image: url(""); /* Fondo (añadir imagen si se desea) */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Contenedor principal */
+.container {
+  flex: 1; /* Empuja el footer al fondo */
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* HEADER */
+.header {
+  background: #EFEEE4;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-bottom: 3px solid #C54A2B;
+}
+
+/* Parte superior del header (logo + menú) */
+.header-top {
+  display: flex;
+  justify-content: center;   /* Centra horizontalmente el contenido */
+  align-items: center;       /* Centra verticalmente */
+  position: relative;        /* Permite posicionar el user-menu de forma absoluta */
+  height: 160px;             /* ajusta según el alto del logo */
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  background: url("../LogoPUMFEST/LogoPUMFEST.png") no-repeat center center;
+  background-size: contain;
+}
+
+.logo-link {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Menú de navegación */
+.nav-menu a {
+  color: #0f0c13;
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #C54A2B;
+}
+
+/* ==========================================
+   SECCIÓN INFO EVENTO (RESPONSIVA Y CENTRADA)
+========================================== */
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: rgba(15, 12, 19, 0.8);
+  border: 2px solid #C54A2B;
+  border-radius: 10px;
+  margin: 40px auto;
+  padding: 40px;
+  max-width: 1100px;
+  gap: 40px;
+  transition: all 0.3s ease;
+}
+
+.event-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-image {
+  max-width: 460px;
+  width: 100%;
+  border-radius: 10px;
+  border: 3px solid #C54A2B;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(197, 74, 43, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.event-image:hover {
+  transform: scale(1.03);
+}
+
+/* Contenedor del texto */
+.event-text {
+  flex: 1;
+  min-width: 280px;
+  color: #fff;
+}
+
+.event-text h1 {
+  color: #C54A2B;
+  font-size: 1.9rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.event-text p {
+  font-size: 1rem;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.event-text .descripcion {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-top: 10px;
+}
+
+/* Botón */
+.event-text .btn {
+  background-color: #C54A2B;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 25px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 12px rgba(255, 77, 0, 0.4);
+}
+
+.event-text .btn i.fa-ticket {
+  margin-right: 6px;
+  position: relative;
+  top: 1px;
+}
+
+.event-text .btn:hover {
+  background: #a33b1f;
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255, 120, 60, 0.7);
+}
+
+
+
+.dates {
+  margin-top: 20px;
+}
+/* Contenedor del evento */
+.date-item {
+  background: #1e1a24;                 /* Fondo oscuro del bloque */
+  padding: 15px 20px;                  /* Espaciado interno */
+  margin: 15px;                        /* Espaciado externo */
+  border-radius: 12px;                 /* Bordes redondeados */
+  display: flex;                       /* Usa flexbox para alinear contenido */
+  justify-content: space-between;      /* Separa texto y botón a los lados */
+  align-items: center;                 /* Centra verticalmente los elementos */
+  flex-wrap: wrap;                     /* Permite que el contenido se acomode en varias líneas */
+  gap: 10px;                            /* Espacio pequeño entre elementos */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación al pasar el mouse */
+}
+
+/* Efecto al pasar el mouse */
+.date-item:hover {
+  transform: translateY(-3px);         /* Mueve el bloque un poco hacia arriba */
+  box-shadow: 0 0 15px rgba(255, 77, 0, 0.3); /* Aumenta la sombra con color */
+}
+
+/* Texto del evento */
+.date-item p {
+  color: #f5f5f5; /* Color blanco grisáceo del texto */
+  font-size: 1rem; /* Tamaño del texto */
+  margin: 0; /* Quita márgenes por defecto */
+  flex: 1; /* El texto ocupa el espacio disponible */
+  word-wrap: break-word;               /* Evita que el texto se salga del contenedor */
+}
+
+.btn {
+  background: #C54A2B;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+  padding: 12px 22px;
+  display: flex;
+  box-shadow: 0 0 12px rgba(255, 77, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn i.fa-ticket {
+  margin-right: 6px; /* 👈 Espacio exacto entre el ícono y el texto */
+  position: relative;
+  top: 1px; /* 🔹 Ajuste visual para centrar verticalmente */
+}
+
+.btn:hover {
+  background: #a33b1f;
+    transform: scale(1.07);
+  box-shadow: 0 0 25px rgba(255, 120, 60, 0.7);
+    background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(232, 255, 100, 0.705),
+    transparent
+  );
+}
+
+
+
+/* FOOTER (siempre al final) */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #0f0c13;
+  background: #EFEEE4;
+  border-top: 2px solid #C54A2B;
+  width: 100%;
+  margin-top: auto; 
+}
+
+
+/*=================================================================================================*/
+
+/* ===============
+LOGO 
+=================*/
+.logo {
+  display: block;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  background: url("/PUMFEST/LogoPUMFEST/LogoPUMFESTsinFondo.png") no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* efecto del logo al darle click mostrará un video PROMO del logo */
+.logo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 3s infinite;
+}
+
+/* Animación de “latido” del LOGO */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* Brillo que cruza el logo */
+@keyframes shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* Mueve el menú de usuario al extremo derecho */
+.user-menu {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  text-align: center;
+}
+
+/* Estilo del botón que contiene el icono y el texto */
+.user-icon {
+  background: none; /* Sin fondo */
+  border: none;
+  font-size: 3.4rem; /* Tamaño icono */
+  cursor: pointer; /* Cambia el cursor a mano al pasar la manito*/
+  color: #c54a2b;
+  transition: transform 0.5s;
+  display: flex; /* Permite colocar icono texto */
+  flex-direction: column; /* Pone el texto debajo del icono */
+  align-items: center; /*centrar text*/
+}
+
+.user-icon .user-img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain; /*tamaño contenedor*/
+  object-position: center; /*centrar*/
+  margin-top: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /*ajuste movil*/
+}
+
+/* Efecto al pasar el mouse sobre el icono */
+.user-icon:hover {
+  transform: scale(0.9);
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin-top: 5px;
+}
+
+/*animacion de login*/
+.flipping-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.5px; /*espacio entre las letras del login*/
+  width: auto;
+}
+
+.card {
+  width: 15px;
+  height: 20px;
+  background-color: #c54a2b;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 3px;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  animation: flip 4s infinite ease-in-out; /* más lenta y suave */
+}
+
+/* Animación más fluida y con más tiempo visual */
+@keyframes flip {
+  0%, 20% { transform: rotateY(0deg); }      /* visible más tiempo */
+  35%, 45% { transform: rotateY(180deg); }   /* giro rápido */
+  60%, 100% { transform: rotateY(0deg); }    /* regresa y se queda visible */
+}
+
+/* Retrasos ajustados: giran una por una */
+.card:nth-child(1) { animation-delay: 0s; }
+.card:nth-child(2) { animation-delay: 0.3s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+.card:nth-child(4) { animation-delay: 0.9s; }
+.card:nth-child(5) { animation-delay: 1.2s; }
+.card:nth-child(6) { animation-delay: 1.5s; }
+.card:nth-child(7) { animation-delay: 1.8s; }
+
+/* Texto LOGIN debajo del icono */
+.login-text {
+  font-size: 1.4rem;   /* Aumenta el tamaño */
+  color: #c54a2b;
+  margin-top: 1px;     /* Un poco más de separación del icono */
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: clamp(1rem, 2vw, 1.6rem); /*   <---                                                    */
+  /*Eso hace que el texto crezca suavemente en pantallas grandes, sin volverse enorme en celulares.*/
+}
+
+/*===================
+ MENU DESPLEGABLE
+ ====================*/
+.user-dropdown {
+  display: none; /* Oculta el menú por defecto */
+  position: absolute;
+  right: 0;
+  top: 70px; /* Coloca el menú debajo del icono */
+  background: #3c3644;
+  border: 2px solid #c54a2b;
+  border-radius: 10px;
+  padding: 15px 30px;
+  min-width: 250px; /*tamaño del cuadro del login al darle click*/
+  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.4);
+  flex-direction: column;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+/* Cuando el menú está visible */
+.user-dropdown.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enlaces dentro del menú desplegable */
+.user-dropdown a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 14px;
+  font-weight: bold;
+  transition: background 0.3s;
+  border-radius: 10px;
+}
+
+/* Efecto al pasar el mouse sobre los enlaces del menú */
+.user-dropdown a:hover {
+  background: #c54a2b;
+  color: #00ffcc;
+  border-radius: 10px;
+}
+
+/* Parte inferior del header: buscador + categorías */
+.header-bottom {
+  margin-top: 7px;
+  text-align: center;
+}
+
+/*=================================================================================================*/
+
+/* ================================
+   FOOTER
+================================ */
+.footer {
+  background: #1e1a24;
+  border-top: 2px solid #c54a2b;
+  color: #ccc;
+  font-size: 0.9rem;
+  padding: 20px 40px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-section h4 {
+  color: #c54a2b;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-section a {
+  color: #bbb;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 3px 0;
+  transition: color 0.3s ease, transform 0.2s;
+}
+
+.footer-section a:hover {
+  color: #c54a2b;
+  transform: translateX(4px);
+}
+
+.footer-section i {
+  font-size: 0.95rem;
+  width: 18px;
+  text-align: center;
+}
+
+.footer-qr {
+  text-align: center;
+  min-width: 120px;
+}
+
+.footer-qr img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  border: 1px solid #c54a2b;
+  margin-bottom: 5px;
+}
+
+.footer-qr p {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.8rem;
+  color: #777;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  /* NAV */
+  .nav-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .header {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .user-icon {
+    font-size: 1.8rem;
+  }
+
+  .search-bar input {
+    font-size: 0.9rem;
+  }
+
+  .categories {
+    justify-content: center;
+  }
+
+  .categories a {
+    padding: 7px 15px;
+    font-size: 0.85rem;
+  }
+
+  /* 📱 Ajuste principal de la sección del evento */
+  .event-detail {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .event-image {
+    width: 100%;
+    max-width: 95%;
+  }
+
+  .event-text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .event-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .event-text p {
+    font-size: 0.95rem;
+  }
+
+  .event-text .btn {
+    width: auto;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 1rem;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #1e1a24;
+    padding: 30px;
+    border-top: 2px solid #c54a2b;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+  }
+}

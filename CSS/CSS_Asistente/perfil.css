@@ -1,0 +1,568 @@
+/* =======================================
+   🌟 PERFIL PUMFEST - ESTILO MODERNO
+======================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🔧 Asegura que SweetAlert2 quede SIEMPRE encima de los modales */
+.swal2-container {
+  z-index: 99999 !important;
+}
+
+/* Por si tus modales usan z-index alto, mantenemos el orden */
+.modal {
+  z-index: 1000;
+}
+
+
+body {
+  margin: 0;                                  /* Elimina cualquier margen por defecto del navegador */
+  padding: 0;                                 /* Elimina cualquier relleno interno */
+  box-sizing: border-box;                     /* Asegura que los anchos y altos incluyan el padding y borde */
+  font-family: "Poppins", "Segoe UI", sans-serif; /* Fuente moderna y limpia */
+  background: radial-gradient(circle at top, #090a07 0%, #1a1a1a 100%); /* Fondo oscuro con degradado */
+  color: #fff;                                /* Texto blanco por defecto */
+  min-height: 100vh;                          /* La página ocupa al menos toda la altura visible */
+  overflow-x: hidden;                         /* Evita scroll horizontal innecesario */
+}
+
+/* ===========================================
+   🏷️ HEADER FIJO (siempre visible arriba)
+=========================================== */
+.header {
+  position: relative;               /* Mantiene el header fijo al tope al hacer scroll */
+  top: 0;                        /* Posiciona el header al borde superior */
+  left: 0;                       /* Alinea el header al borde izquierdo */
+  width: 100%;                   /* Ocupa todo el ancho de la pantalla */
+  background: #efeee4;           /* Color de fondo (beige claro) */
+  border-bottom: 4px solid #c54a2b; /* Línea inferior decorativa color naranja oscuro */
+  text-align: center;            /* Centra el contenido del header (el logo) */
+  padding: 10px 0;               /* Espaciado interno arriba y abajo */
+  box-shadow: 0 4px 15px rgba(197, 74, 43, 0.25); /* Sombra inferior suave */
+  z-index: 100;                  /* Asegura que el header esté por encima de otros elementos */
+}
+
+/* ===========================================
+   🦁 LOGO ANIMADO PUMFEST
+=========================================== */
+.logo {
+  display: block;                /* Se comporta como bloque (ocupa su propia línea) */
+  width: 170px;                  /* Ancho fijo del logo */
+  height: 170px;                 /* Alto fijo del logo */
+  margin: 0 auto;                /* Centra horizontalmente dentro del header */
+  background: url("../../LogoPUMFEST/LogoPUMFESTsinFondo.png") 
+              no-repeat center center; /* Coloca la imagen centrada sin repetición */
+  background-size: contain;      /* Ajusta la imagen dentro del contenedor sin deformarla */
+  cursor: pointer;               /* Cambia el cursor a “mano” (clickeable) */
+  position: relative;            /* Necesario para posicionar el pseudo-elemento ::after */
+  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transiciones suaves */
+  animation: pulse 3s ease-in-out infinite; /* Aplica animación de “latido” constante */
+}
+
+/* ✨ EFECTO DE BRILLO (destello que cruza el logo) */
+.logo::after {
+  content: "";                   /* Crea un pseudo-elemento vacío */
+  position: absolute;            /* Lo posiciona sobre el logo */
+  top: 0;                        /* Inicia desde la parte superior */
+  left: -100%;                   /* Comienza fuera del área del logo hacia la izquierda */
+  width: 100%;                   /* Mismo ancho que el logo */
+  height: 100%;                  /* Mismo alto que el logo */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.5) 0%, /* Brillo blanco semitransparente al inicio */
+    rgba(255, 255, 255, 0) 100%  /* Se desvanece hacia la derecha */
+  );
+  transform: skewX(-20deg);      /* Inclina el brillo para darle dinamismo */
+  animation: shine 3s infinite;  /* Aplica animación continua del destello */
+}
+
+/* 💓 ANIMACIÓN DE “LATIDO” (aumenta y reduce ligeramente el tamaño) */
+@keyframes pulse {
+  0% { transform: scale(1); }    /* Tamaño normal */
+  50% { transform: scale(1.08); }/* Crece un poco en el centro de la animación */
+  100% { transform: scale(1); }  /* Vuelve al tamaño original */
+}
+
+/* 💫 ANIMACIÓN DE “BRILLO” (recorre el logo de izquierda a derecha) */
+@keyframes shine {
+  0% { left: -100%; }            /* El brillo empieza fuera del logo */
+  50% { left: 100%; }            /* Cruza completamente el logo */
+  100% { left: 100%; }           /* Termina fuera del logo a la derecha */
+}
+
+/* =======================================
+   👤 CONTENEDOR PRINCIPAL DEL PERFIL
+======================================= */
+.perfil-container {
+  background: rgba(35, 33, 41, 0.85);
+  border: 1px solid rgba(255, 184, 77, 0.15);
+  border-radius: 20px;
+  padding: 40px 50px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(197, 74, 43, 0.25);
+  animation: fadeIn 0.8s ease forwards;
+  transition: all 0.3s ease;
+  margin-top: 130px; /* Ajusta según la altura real del header */
+}
+
+.perfil-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(255, 184, 77, 0.2);
+}
+
+.perfil-container h2 {
+  font-size: 2rem;
+  color: #ffb84d;
+  margin-bottom: 25px;
+  text-shadow: 0 0 8px rgba(255, 184, 77, 0.3);
+  position: relative;
+}
+
+/* Línea decorativa bajo el título */
+.perfil-container h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #c54a2b, #ffb84d);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* =======================================
+   📋 INFO DEL USUARIO
+======================================= */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.info p {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 184, 77, 0.1);
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.info p:hover {
+  background: rgba(255, 184, 77, 0.12);
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(255, 184, 77, 0.2);
+}
+
+/* =======================================
+   🔴 BOTÓN ELIMINAR CUENTA
+======================================= */
+.eliminar-btn {
+  background: linear-gradient(135deg, #c54a2b, #ff4d4d);
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(255, 77, 77, 0.3);
+}
+
+.eliminar-btn:hover {
+  background: linear-gradient(135deg, #ffb84d, #e74c3c);
+  transform: scale(1.07);
+  box-shadow: 0 6px 25px rgba(255, 184, 77, 0.35);
+}
+
+/* =======================================
+   ✏️ BOTÓN EDITAR PERFIL
+======================================= */
+.editar-btn {
+  background: linear-gradient(135deg, #ffb84d, #d79b3d);
+  color: #1a1a1a;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-left: 20px; /*separar un poco mas del boton borrar cuenta*/
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(255, 184, 77, 0.3);
+}
+
+.editar-btn:hover {
+  background: linear-gradient(135deg, #c0c0c0, #e0e0e0); /* Plateado */
+  color: #000;
+  transform: scale(1.07);
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.4);
+}
+
+
+/* =======================================
+   💬 MODAL CONFIRMACIÓN
+======================================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000; /* Debajo del SweetAlert */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================= */
+/* 📦 Contenedor del contenido */
+/* ============================= */
+.modal-contenido {
+  background: #1f1b29;
+  color: #ffb84d;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 184, 77, 0.3);
+  width: 100%;
+  max-width: 400px;
+  padding: 25px 30px;
+  text-align: center;
+  animation: aparecer 0.3s ease;
+  position: relative;
+}
+
+
+.modal-contenido h3 {
+  color: #ffb84d;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.modal-contenido p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.modal-contenido input[type="password"] {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.modal-contenido input[type="password"]:focus {
+  background: #333;
+  box-shadow: 0 0 10px #ffb84d;
+}
+
+/* =======================================
+   💫 MODAL CAMBIAR CONTRASEÑA (centrado + animado)
+======================================= */
+#modalCodigo {
+  display: none;
+  position: fixed;
+  inset: 0; /* Reemplaza left, top, width y height */
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 3000; /* Más alto que otros modales */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenido del modal centrado con animación */
+#modalCodigo .modal-contenido {
+  background: #1f1b29;
+  color: #ffb84d;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(255, 184, 77, 0.4);
+  width: 90%;
+  max-width: 420px;
+  padding: 30px 35px;
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: aparecerZoom 0.4s ease forwards;
+}
+
+/* ✨ Inputs personalizados */
+#modalCodigo input[type="text"],
+#modalCodigo input[type="password"] {
+  width: 85%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #222;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#modalCodigo input:focus {
+  background: #333;
+  box-shadow: 0 0 12px #ffb84d;
+}
+
+/* ✨ Botón */
+#modalCodigo .confirmar-btn {
+  background: linear-gradient(135deg, #ffb84d, #c54a2b);
+  color: #1a1a1a;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(255, 184, 77, 0.3);
+}
+
+#modalCodigo .confirmar-btn:hover {
+  background: linear-gradient(135deg, #ffd280, #ffb84d);
+  transform: scale(1.07);
+  box-shadow: 0 6px 25px rgba(255, 184, 77, 0.4);
+}
+
+/* Botón cerrar */
+#modalCodigo .cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #ffb84d;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#modalCodigo .cerrar:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* ✨ Animación del modal (zoom + fade) */
+@keyframes aparecerZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(20px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+/* Botones del modal */
+.confirmar-btn {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.confirmar-btn:hover {
+  background: linear-gradient(135deg, #ff6b3d, #ff4d4d);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
+}
+
+.cerrar {
+  color: #ffb84d;
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.cerrar:hover {
+  color: #fff;
+}
+
+/* =======================================
+   📱 RESPONSIVE
+======================================= */
+@media (max-width: 600px) {
+  .perfil-container {
+    padding: 25px;
+    max-width: 90%;
+  }
+
+  .perfil-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .eliminar-btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* =======================================
+   ✨ ANIMACIONES
+======================================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInModal {
+  from { background: rgba(0, 0, 0, 0); }
+  to { background: rgba(0, 0, 0, 0.85); }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ============================= */
+/* 📦 ESTRUCTURA PRINCIPAL */
+/* ============================= */
+
+
+
+/* Centra el contenido del main */
+.perfil-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding-bottom: 60px; /* deja aire antes del footer */
+}
+
+/* Footer visible y fijo al final del documento */
+.footer {
+  background: #1e1a24;
+  border-top: 2px solid #c54a2b;
+  color: #ccc;
+  text-align: center;
+  width: 100%;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
+
+/* ============================= */
+/* 🖼️ AVATAR DEL PERFIL */
+/* ============================= */
+
+.perfil-avatar {
+  display: flex;                /* Centra el contenido horizontal y verticalmente */
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+/* Cuadro dorado del avatar */
+.perfil-avatar img {
+  width: 140px;                 /* 🔹 Tamaño del cuadro (mantiene proporción general) */
+  height: 140px;
+  border-radius: 12%;           /* Bordes suavemente redondeados */
+  object-fit: contain;          /* 🔹 Muestra la imagen completa, sin recortar */
+  padding: 10px;                /* 🔹 Espacio interno (la imagen se ve más pequeña dentro del marco) */
+  border: 2px solid #ffb84d;    /* Marco dorado */
+  background: rgba(255, 184, 77, 0.08); /* Fondo translúcido dorado */
+  box-shadow: 0 0 20px rgba(255, 184, 77, 0.35); /* Sombra suave dorada */
+  transition: all 0.4s ease;    /* Transiciones suaves */
+}
+
+/* 🌟 Efecto de resaltado */
+.perfil-avatar img:hover {
+  transform: scale(1.06);       /* 🔹 Efecto de zoom leve */
+  box-shadow: 0 0 35px rgba(255, 184, 77, 0.6); /* Sombra brillante */
+  animation: highlight 1.2s ease; /* Activa brillo temporal */
+}
+
+/* ✨ Animación de brillo */
+@keyframes highlight {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.6);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+
+/* =======================================
+   🧾 MODAL EDITAR PERFIL
+======================================= */
+.editar-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.editar-formulario input {
+  width: 85%;
+  padding: 10px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.editar-formulario input:focus {
+  background: #333;
+  box-shadow: 0 0 10px #ffb84d;
+}
+
+.guardar-btn {
+  background: linear-gradient(135deg, #ffb84d, #d79b3d);
+  color: #1a1a1a;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 184, 77, 0.4);
+}
+
+.guardar-btn:hover {
+  background: linear-gradient(135deg, #c0c0c0, #e0e0e0);
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
+}
+

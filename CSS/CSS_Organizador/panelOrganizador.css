@@ -1,0 +1,128 @@
+/* ===============================
+   PANEL ORGANIZADOR - PUMFEST
+   =============================== */
+
+body {
+    background: #090A07; /* igual al login */
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Contenedor principal del panel */
+.panel-container {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 45px;
+    background: rgba(30, 26, 36, 0.95); /* mismo tono del login */
+    border: 2px solid #C54A2B; /* naranja del login */
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6), 0 0 15px rgba(197, 74, 43, 0.3);
+    text-align: center;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.panel-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(197, 74, 43, 0.4);
+}
+
+/* Títulos */
+h1 {
+    color: #C54A2B;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-weight: 300;
+    color: #ccc;
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+}
+
+/* ===============================
+   BOTONES DEL PANEL
+   =============================== */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    margin: 12px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    border: none;
+}
+
+/* 🔹 Botón ver eventos */
+.btn-eventos {
+    background: linear-gradient(90deg, #1795ff, #23d3fb); /* azul del loader */
+    color: #fff;
+}
+.btn-eventos:hover {
+    background: linear-gradient(90deg, #23d3fb, #1795ff);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(35, 211, 251, 0.5);
+}
+
+/* 🟡 Botón editar perfil */
+.btn-editar {
+    background: linear-gradient(90deg, #f09819, #ff5858); /* tonos cálidos iguales al alerta */
+    color: #fff;
+}
+.btn-editar:hover {
+    background: linear-gradient(90deg, #ff5858, #f09819);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 120, 70, 0.6);
+}
+
+/* 🔴 Botón cerrar sesión */
+.btn-logout {
+    background: linear-gradient(90deg, #c54a2b, #a63b20); /* mismo degradado del login */
+    color: #fff;
+}
+.btn-logout:hover {
+    background: linear-gradient(90deg, #a63b20, #c54a2b);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(197, 74, 43, 0.6);
+}
+
+
+/* 🧾 Botón solicitud eliminar cuenta */
+.btn-eliminar {
+  background: linear-gradient(90deg, #e5e5e5, #d4d4d4);
+  color: #000;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+.btn-eliminar:hover {
+  background: linear-gradient(90deg, #fefce8, #e2e8f0);
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+@media (max-width: 768px) {
+    .panel-container {
+        margin: 50px 20px;
+        padding: 30px;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 10px 0;
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+}
